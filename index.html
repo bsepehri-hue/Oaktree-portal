@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Oaktree Sanctuary Portal</title>
+  <script src="https://www.gstatic.com/firebasejs/10.5.2/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.5.2/firebase-auth.js"></script>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to right, #e0f7fa, #f1f8e9);
+      text-align: center;
+      padding: 50px;
+    }
+    .login-btn {
+      padding: 12px 24px;
+      background-color: #4caf50;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <h1>Welcome to the Oaktree Sanctuary 🌿</h1>
+  <button class="login-btn" onclick="signIn()">Sign in with Google</button>
+
+  <script>
+    const firebaseConfig = {
+      apiKey: "YOUR_API_KEY",
+      authDomain: "YOUR_PROJECT_ID.firebaseapp.com",
+      projectId: "YOUR_PROJECT_ID",
+      appId: "YOUR_APP_ID"
+    };
+
+    firebase.initializeApp(firebaseConfig);
+
+    const provider = new firebase.auth.GoogleAuthProvider();
+
+    function signIn() {
+      firebase.auth().signInWithPopup(provider)
+        .then(result => {
+          const user = result.user;
+          alert(`Welcome, ${user.displayName}`);
+        })
+        .catch(error => {
+          console.error("Login error:", error);
+        });
+    }
+  </script>
+</body>
+</html>
