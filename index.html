@@ -29,27 +29,30 @@
   <button class="login-btn" onclick="signIn()">Sign in with Google</button>
 
   <script>
-    const firebaseConfig = {
-      apiKey: "YOUR_API_KEY",
-      authDomain: "YOUR_PROJECT_ID.firebaseapp.com",
-      projectId: "YOUR_PROJECT_ID",
-      appId: "YOUR_APP_ID"
-    };
+    <script type="module">
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.0/firebase-app.js";
+  import { getAuth, GoogleAuthProvider, signInWithPopup } from "https://www.gstatic.com/firebasejs/10.7.0/firebase-auth.js";
 
-    firebase.initializeApp(firebaseConfig);
+  const firebaseConfig = {
+    apiKey: "AIzaSyAS-eRT9CKzEvWuBS55Gqzaoa0lB1f_1lg",
+    authDomain: "oakportal-57694.firebaseapp.com",
+    projectId: "oakportal-57694",
+    storageBucket: "oakportal-57694.firebasestorage.app",
+    messagingSenderId: "102420516875",
+    appId: "1:102420516875:web:b8d86253b30a62e37f370e"
+  };
 
-    const provider = new firebase.auth.GoogleAuthProvider();
+  const app = initializeApp(firebaseConfig);
+  const auth = getAuth(app);
+  const provider = new GoogleAuthProvider();
 
-    function signIn() {
-      firebase.auth().signInWithPopup(provider)
-        .then(result => {
-          const user = result.user;
-          alert(`Welcome, ${user.displayName}`);
-        })
-        .catch(error => {
-          console.error("Login error:", error);
-        });
-    }
-  </script>
-</body>
-</html>
+  document.querySelector(".login-btn").addEventListener("click", () => {
+    signInWithPopup(auth, provider)
+      .then((result) => {
+        console.log("Signed in:", result.user);
+      })
+      .catch((error) => {
+        console.error("Error:", error);
+      });
+  });
+</script>
