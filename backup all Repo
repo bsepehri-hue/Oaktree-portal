@@ -1,0 +1,43 @@
+# ListToBid
+cd ~/ListToBid
+echo "node_modules/" >> .gitignore
+git add .gitignore
+git commit -m "Add .gitignore to exclude node_modules" || true
+git rm -r --cached node_modules || true
+git commit -m "Remove node_modules from repo history" || true
+git reset --hard
+git remote set-url origin https://bsepehri-hue:YOUR_TOKEN@github.com/bsepehri-hue/ListToBid.git
+git push -u origin main --force
+
+# Oaktree
+cd ~/Oaktree
+echo "node_modules/" >> .gitignore
+git add .gitignore
+git commit -m "Add .gitignore to exclude node_modules" || true
+git rm -r --cached node_modules || true
+git commit -m "Remove node_modules from repo history" || true
+git reset --hard
+git remote set-url origin https://bsepehri-hue:YOUR_TOKEN@github.com/bsepehri-hue/Oaktree.git
+git push -u origin main --force
+
+# Dashboard
+cd ~/Dashboard
+echo "node_modules/" >> .gitignore
+git add .gitignore
+git commit -m "Add .gitignore to exclude node_modules" || true
+git rm -r --cached node_modules || true
+git commit -m "Remove node_modules from repo history" || true
+git reset --hard
+git remote set-url origin https://bsepehri-hue:YOUR_TOKEN@github.com/bsepehri-hue/Dashboard.git
+git push -u origin main --force
+
+# Oaktree-portal
+cd ~/Oaktree-portal
+echo "node_modules/" >> .gitignore
+git add .gitignore
+git commit -m "Add .gitignore to exclude node_modules" || true
+git rm -r --cached node_modules || true
+git commit -m "Remove node_modules from repo history" || true
+git reset --hard
+git remote set-url origin https://bsepehri-hue:YOUR_TOKEN@github.com/bsepehri-hue/Oaktree-portal.git
+git push -u origin main --force
